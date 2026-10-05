@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unified-sbi"
+version = "0.1.0"
+description = "One-step Gaussian representations of parameters and data for simulation-based inference"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Lucas", email = "tlm41@cam.ac.uk" }]
+dependencies = [
+    "torch>=2.1",
+    "sbi==0.27.0",
+    "numpy",
+    "scipy",
+    "pandas",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+shared = ["zuko>=1.0"]   # MAF baselines of the shared-space study
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::FutureWarning", "ignore::UserWarning"]
+markers = ["slow: end-to-end smoke tests (deselect with -m \"not slow\")"]

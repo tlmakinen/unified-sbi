@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+results/
+logs/
+sbi-logs/
+*.pt
+.DS_Store
+Claude outputs/
